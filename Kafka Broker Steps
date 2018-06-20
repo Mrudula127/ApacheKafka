@@ -1,0 +1,10 @@
+Simple Java Producer (Chapter 5, Page 35ff.)
+Open command line in your Kafka installation folder
+Launch Zookeeper with .\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+Open a second command line in your Kafka installation folder
+Launch single Kafka broker: .\bin\windows\kafka-server-start.bat .\config\server.properties
+Open a third command line in your Kafka installation folder
+Create a topic: .\bin\windows\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+Start a console consumer for that topic: .\bin\windows\kafka-console-consumer.bat --zookeeper localhost:2181 --topic test --from-beginning
+From a fourth command line or your IDE run SimpleProducer with topic and message as arguments: java SimpleProducer test HelloKafka
+The message HelloKafka should appear in the console consumer's log
